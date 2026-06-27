@@ -906,6 +906,12 @@
             border-color: #10B981;
             opacity: .35;
         }
+        .work-card-badge.digital { background: #0CA5B8; color: var(--white); }
+        .work-card-badge.event { background: #9C36B5; color: var(--white); }
+        .work-card-badge.merchandise { background: #E8590C; color: var(--white); }
+        .work-filter-btn.filter-digital { background: #0CA5B8; color: var(--white); border-color: #0CA5B8; opacity: .35; }
+        .work-filter-btn.filter-event { background: #9C36B5; color: var(--white); border-color: #9C36B5; opacity: .35; }
+        .work-filter-btn.filter-merchandise { background: #E8590C; color: var(--white); border-color: #E8590C; opacity: .35; }
         .work-filter-btn.active {
             opacity: 1;
         }
@@ -2108,8 +2114,7 @@
         .hero-prop.hp-skate { width: clamp(60px, 6.75vw, 117px); top: calc(34% + 80px); left: calc(6% + 60px); --rot: -17deg; }
         .hero-prop.hp-mtg { width: clamp(66px, 7.2vw, 120px); bottom: 12%; left: calc(5% + 120px); --rot: -10deg; }
         .hero-prop.hp-stroop { width: clamp(72px, 7.8vw, 124px); bottom: 10%; left: calc(19% + 20px); --rot: 12deg; }
-        .hero-prop.hp-bat { width: clamp(35px, 4vw, 65px); top: 14%; right: calc(5% + 180px); --rot: -22deg; }
-        .hero-prop.hp-pavpola { width: clamp(120px, 14vw, 210px); bottom: calc(10% + 20px); right: calc(4% + 70px); --rot: 5deg; }
+        .hero-prop.hp-pavpola { width: clamp(144px, 16.8vw, 252px); bottom: calc(10% + 20px); right: calc(4% + 70px); --rot: 5deg; display: block; }
         .polaroid { background: #fff; padding: 7px 7px 24px; box-shadow: 3px 6px 14px rgba(0,0,0,.5); }
         .polaroid img { display: block; width: 100%; height: auto; }
         @media (max-width: 768px) { .hero-prop { display: none; } }
@@ -3557,8 +3562,7 @@
                     <img className="hero-prop hp-skate" src="Objects/surfskate.png" alt="" />
                     <img className="hero-prop hp-mtg" src="Objects/mtg.png" alt="" />
                     <img className="hero-prop hp-stroop" src="Objects/stroopwafel.png" alt="" />
-                    <img className="hero-prop hp-bat" src="Photos of Pav/Cricket bat.png" alt="" />
-                    <img className="hero-prop hp-pavpola" src="Photos of Pav/Polaroid Pav.png" alt="Pav" />
+                    <a className="hero-prop hp-pavpola" href="https://vimeo.com/314071085?fl=pl&fe=sh" target="_blank" rel="noopener noreferrer"><img src="Photos of Pav/Polaroid Pav.png" alt="Pav" style={{display:'block', width:'100%'}} /></a>
                 </section>
             );
         }
@@ -3567,7 +3571,7 @@
         function WorkSection() {
             const [selectedProject, setSelectedProject] = useState(null);
             const [activeFilter, setActiveFilter] = useState('ALL');
-            const categories = ['ALL', 'ACTIVATION', 'SOCIAL', 'FILM', 'OOH', 'PRINT', 'INTEGRATED', 'BRAND IDENTITY', 'NON-TRADITIONAL', 'EARNED'];
+            const categories = ['ALL', 'ACTIVATION', 'SOCIAL', 'FILM', 'OOH', 'PRINT', 'INTEGRATED', 'BRAND IDENTITY', 'DIGITAL', 'EVENT', 'MERCHANDISE'];
 
             const projects = [
                 {
@@ -3588,7 +3592,7 @@
                     ],
                     heroGif: true,
                     galleryFirst: true,
-                    category: ["ACTIVATION", "NON-TRADITIONAL"]
+                    category: ["DIGITAL", "ACTIVATION"]
                 },
                 {
                     id: 4,
@@ -3654,7 +3658,7 @@
                             'UGC/Gemini 3 (Nano Banana Pro)_0007.png','UGC/Gemini 3 (Nano Banana Pro)_0008.png'
                         ]}
                     ],
-                    category: ["SOCIAL", "NON-TRADITIONAL"]
+                    category: ["SOCIAL"]
                 },
                 {
                     id: 14,
@@ -3683,10 +3687,10 @@
                     client: "RSPB",
                     tag: "FILM · INTEGRATED",
                     brief: "The UK is one of the most nature-depleted countries in the world, with one in six native British species at risk of extinction. The work needed to cut through and get people campaigning for the species under threat.",
-                    idea: "A campaign that uses humour to raise awareness of the plight of key species threatened by pollution, habitat destruction and human encroachment — and to rally people to campaign on their behalf. Created with Blue Zoo, the Emmy and BAFTA-winning animation studio, with sound design by 750mph. Recognised at the Creativepool Awards (Animation — Gold; Social Good — Bronze), The Drum Awards (Creative Humour — Silver), Shots Awards (Animation 3D — Bronze) and Annecy Festival 2024 (Official Selection).",
+                    idea: "A campaign that uses humour to raise awareness of the plight of key species threatened by pollution, habitat destruction and human encroachment, and to rally people to campaign on their behalf. Created with Blue Zoo, the Emmy and BAFTA-winning animation studio, with sound design by 750mph.\n\nRecognised at the Creativepool Awards (Animation — Gold; Social Good — Bronze), The Drum Awards (Creative Humour — Silver), Shots Awards (Animation 3D — Bronze) and Annecy Festival 2024 (Official Selection).",
                     thumb: "https://images.squarespace-cdn.com/content/v1/65ce688a1ee67e7a1b90e979/1720772836277-JMHQJBPQO5KS2ZR3QJUR/woodpecker.png",
                     videos: ['https://vimeo.com/913440429','https://vimeo.com/913440181','https://vimeo.com/913439330'],
-                    category: ["FILM", "INTEGRATED"],
+                    category: ["FILM", "SOCIAL", "OOH", "INTEGRATED"],
                     link: "https://pavrao.uk/work/rspb"
                 },
                 {
@@ -3695,7 +3699,7 @@
                     client: "REPRIEVE",
                     tag: "BRAND IDENTITY · FILM",
                     brief: "Human rights charity Reprieve wanted an initiative to highlight the use of music torture by the US government.",
-                    idea: "The very first thing created for them was the name — 'zero dB'. To explain the story of music torture, the campaign centred on a documentary film, built from detailed research and interviews with Tony Benn, Robert Del Naja (Massive Attack), Philippe Sands QC, Dr William Hopkins, former Guantánamo Bay detainees Moazzam Begg and Ruhal Ahmed, and former guard Christopher Arendt.\n\nA handout for the 2009 Brit Awards took the form of a CD sleeve: the front carried the logo, the back a playlist of vastly contrasting songs — every one used by the US as music torture. Inside, in place of a CD, were further information and the campaign's prominent supporters. A similar handout was given to MPs.",
+                    idea: "The very first thing created for them was a name: 'zero dB'. To explain the story of music torture, the campaign centred on a documentary film, built from detailed research and interviews with Tony Benn, Robert Del Naja (Massive Attack), Philippe Sands QC, Dr William Hopkins, former Guantánamo Bay detainees Moazzam Begg and Ruhal Ahmed, and former guard Christopher Arendt.\n\nA handout for the 2009 Brit Awards took the form of a CD sleeve: the front carried the logo, the back a playlist of vastly contrasting songs (every single one was used by the US as music torture). Inside, in place of a CD, was further information and the campaign's most prominent supporters. A similar handout was given to MPs.",
                     thumb: "https://images.squarespace-cdn.com/content/v1/65ce688a1ee67e7a1b90e979/1708033320813-6FTPKJVVHAVJFY6LSGOX/REP1004_RGB_zerodBLogo_REGULAR_V3_2009_08_11_1000.jpg",
                     groups: [
                         {type:'image', img:'https://images.squarespace-cdn.com/content/v1/65ce688a1ee67e7a1b90e979/1708033320813-6FTPKJVVHAVJFY6LSGOX/REP1004_RGB_zerodBLogo_REGULAR_V3_2009_08_11_1000.jpg', width:'42%'},
@@ -3707,7 +3711,7 @@
                         {type:'row', fullWidth:true, imgs:['https://images.squarespace-cdn.com/content/v1/65ce688a1ee67e7a1b90e979/ca611baf-b2e6-4b44-8559-e102275cb393/zero+dB+handout+photos.JPG']},
                         {type:'row', fullWidth:true, imgs:['https://images.squarespace-cdn.com/content/v1/65ce688a1ee67e7a1b90e979/ade53b00-aae0-42a6-9c8d-3e1c72e95bc9/zero+dB+handout+copy.JPG']}
                     ],
-                    category: ["BRAND IDENTITY", "FILM"],
+                    category: ["FILM", "BRAND IDENTITY", "DIGITAL", "EVENT"],
                     link: "https://pavrao.uk/work/reprieve-zerodb"
                 },
                 {
@@ -3716,10 +3720,10 @@
                     client: "REPRIEVE",
                     tag: "DESIGN · FUNDRAISING",
                     brief: "Raise money for Reprieve through T-shirts sold on their website.",
-                    idea: "Redacted text was something Reprieve's lawyers met constantly when representing the people they defended in Guantánamo Bay. Setting that redaction against the stripes of the US flag made for a sharp visual comparison — and the redacted words weren't random. They're Article 1 of the Universal Declaration of Human Rights: \"All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.\"",
+                    idea: "Redacted text was commonly encountered by Reprieve's lawyers when dealing with the people they represented in Guantanamo Bay, which brought to mind the visual comparison with the stripes of the US flag. And to hit home even harder the redacted text was from Article 1 of the Universal Declaration of Human Rights: All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.",
                     thumb: "https://images.squarespace-cdn.com/content/v1/65ce688a1ee67e7a1b90e979/1708032820471-9MA0KYG6WPAOQ1D7HMMY/Reprieve+ts+and+cs+close.jpg",
                     imgs: ['https://images.squarespace-cdn.com/content/v1/65ce688a1ee67e7a1b90e979/4d826ad4-1b59-4ff7-9577-e71fde362ea1/Reprieve+ts+and+cs+2+low+res.jpg','https://images.squarespace-cdn.com/content/v1/65ce688a1ee67e7a1b90e979/503e5ae8-23bb-4a96-ad6d-037d415d472a/Reprieve+ts+and+cs+close+low+res.jpg','https://images.squarespace-cdn.com/content/v1/65ce688a1ee67e7a1b90e979/e29cb203-95c2-4f20-96ad-b360ae9f1990/reprieve+redacted+2+low+res.jpg','https://images.squarespace-cdn.com/content/v1/65ce688a1ee67e7a1b90e979/d3bb8ae3-327b-4916-86cb-b1e6427fcc48/reprieve+redacted+close+low+res.jpg'],
-                    category: ["PRINT", "NON-TRADITIONAL"],
+                    category: ["MERCHANDISE"],
                     link: "https://pavrao.uk/work/reprieve-t-shirts"
                 },
                 {
@@ -3728,7 +3732,7 @@
                     client: "REPRIEVE",
                     tag: "DIRECT · PRINT",
                     brief: "A card to mark a new year for Reprieve.",
-                    idea: "So much of the information Reprieve was working with at the time was heavily redacted, so the card's message was built out of redaction itself — the only unredacted words being 'happy', 'new' and 'year'. This piece, alongside other work, won a D&AD Graphite Pencil.",
+                    idea: "So much of the information Reprieve was working with at the time was heavily redacted, so the card's message was built out of redaction, with the only unredacted words being 'happy', 'new' and 'year'. This piece, alongside other work, won a D&AD Graphite Pencil.",
                     thumb: "https://images.squarespace-cdn.com/content/v1/65ce688a1ee67e7a1b90e979/1708032679277-9K2A0KTJBF7J9RV8UM6G/REP_New+Year+card.jpg",
                     imgs: ['https://images.squarespace-cdn.com/content/v1/65ce688a1ee67e7a1b90e979/6f9c247a-61fb-41ae-b314-e3ee9a79212f/REP_New+Year+card.jpg'],
                     category: ["PRINT"],
@@ -3776,8 +3780,10 @@
                     <div className="container">
                         <div className="about-bio">
                             <h2><MixedTitle text="Hello." hoverable={true} /></h2>
-                            <p>We're Ella and Pav, an award-winning senior creative team based in London. Whether it's creating an app to help victims of domestic violence get support when they need it most, building a virtual playground that brought Hong Kong's historic Old Town to life during lockdown, or working with Massive Attack and Tony Benn to raise awareness of torture in CIA black sites, we're drawn to big problems and unexpected solutions.</p>
-                            <p style={{marginTop: '1.4rem'}}>Between us we've led global campaigns, won a few shiny awards, attracted new clients and even shot and directed our own content. But what excites us the most is finding ideas that make people stop, pay attention and act.</p>
+                            <p>We're Ella and Pav, an award-winning senior creative team based in London.</p>
+                            <p style={{marginTop: '1.4rem'}}>Whether it's creating an app to help victims of domestic violence get support when they need it most, building a virtual playground that brought Hong Kong's historic Old Town to life during lockdown, or working with Massive Attack and Tony Benn to raise awareness of torture in CIA black sites, we're drawn to big problems and unexpected solutions. But we're more than happy to sweat the small stuff too.</p>
+                            <p style={{marginTop: '1.4rem'}}>Between us, we've led global campaigns, attracted new clients, shot and directed our own content, and won a few shiny awards along the way. But what excites us most is finding ideas that interrupt, engage and create change.</p>
+                            <p style={{marginTop: '1.4rem'}}>If we can be of help, please give us a shout through any of the contacts below.</p>
                         </div>
                     </div>
                 </section>
@@ -3940,7 +3946,7 @@
                                 <h3>Awards</h3>
                                 <ul>
                                     <li>Cannes Lions — 2× Bronze</li>
-                                    <li>D&AD — Graphite Pencil</li>
+                                    <li>D&AD — Graphite Pencil ×2</li>
                                     <li>The Drum Awards — Silver</li>
                                     <li>Creativepool — Gold + Bronze</li>
                                     <li>Shots Awards — Bronze</li>
@@ -3988,10 +3994,6 @@
                             </a>
                         </div>
 
-                        <div className="contact-credits">
-                            <div className="contact-credits-line">© 2026 ELLA & PAV // ALL RIGHTS RESERVED</div>
-                            <div className="contact-credits-line">CRAFTED WITH PIXELS & PASSION</div>
-                        </div>
                     </div>
                 </section>
             );
@@ -4140,8 +4142,9 @@
                 el.setAttribute('draggable','false');
                 var sx, sy, ox, oy;
                 function cur(){ return [parseFloat(el.style.getPropertyValue('--tx'))||0, parseFloat(el.style.getPropertyValue('--ty'))||0]; }
-                function start(cx, cy){ var c=cur(); ox=c[0]; oy=c[1]; sx=cx; sy=cy; el.classList.add('dragging'); }
-                function moveTo(cx, cy){ el.style.setProperty('--tx',(ox+cx-sx)+'px'); el.style.setProperty('--ty',(oy+cy-sy)+'px'); }
+                function start(cx, cy){ var c=cur(); ox=c[0]; oy=c[1]; sx=cx; sy=cy; el._moved=false; el.classList.add('dragging'); }
+                function moveTo(cx, cy){ if(Math.abs(cx-sx)+Math.abs(cy-sy)>5) el._moved=true; el.style.setProperty('--tx',(ox+cx-sx)+'px'); el.style.setProperty('--ty',(oy+cy-sy)+'px'); }
+                el.addEventListener('click', function(e){ if(el._moved){ e.preventDefault(); e.stopPropagation(); } });
                 el.addEventListener('mousedown', function(e){
                     e.preventDefault(); start(e.clientX, e.clientY);
                     function mm(ev){ moveTo(ev.clientX, ev.clientY); }
