@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ELLA & PAV | Creative Duo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Montserrat:wght@700;900&family=Press+Start+2P&family=Work+Sans:wght@300;400;600;700&family=Antic+Didone&family=DotGothic16&family=Libre+Bodoni:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Montserrat:wght@700;900&family=Press+Start+2P&family=Work+Sans:wght@300;400;600;700&family=Antic+Didone&family=DotGothic16&family=Libre+Bodoni:ital,wght@1,400;1,700&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
 
     <script src="lib/react.production.min.js"></script>
     <script src="lib/react-dom.production.min.js"></script>
@@ -2110,11 +2110,13 @@
         .hero-prop { position: absolute; z-index: 1; pointer-events: auto; cursor: grab; filter: drop-shadow(3px 5px 8px rgba(0,0,0,.45)); transform: translate(var(--tx,0px), var(--ty,0px)) rotate(var(--rot,0deg)) scale(var(--sc,1)); transition: transform .25s cubic-bezier(.34,1.56,.64,1), filter .25s; -webkit-user-select: none; user-select: none; }
         .hero-prop:hover { --sc: 1.07; z-index: 5; filter: drop-shadow(5px 9px 16px rgba(0,0,0,.55)); }
         .hero-prop.dragging { transition: none; cursor: grabbing; z-index: 6; }
-        .hero-prop.hp-polaroid { width: clamp(135px, 13.5vw, 225px); top: calc(10% + 150px); left: calc(4% + 110px); --rot: -8deg; }
-        .hero-prop.hp-skate { width: clamp(60px, 6.75vw, 117px); top: calc(34% + 80px); left: calc(6% + 60px); --rot: -17deg; }
-        .hero-prop.hp-mtg { width: clamp(66px, 7.2vw, 120px); bottom: 12%; left: calc(5% + 120px); --rot: -10deg; }
-        .hero-prop.hp-stroop { width: clamp(72px, 7.8vw, 124px); bottom: 10%; left: calc(19% + 20px); --rot: 12deg; }
-        .hero-prop.hp-pavpola { width: clamp(144px, 16.8vw, 252px); bottom: calc(10% + 20px); right: calc(4% + 70px); --rot: 5deg; display: block; }
+        .hero-prop.hp-polaroid { width: clamp(135px, 13.5vw, 225px); top: calc(10% + 230px); left: calc(4% + 110px); --rot: -8deg; }
+        .hero-prop.hp-skate { width: clamp(60px, 6.75vw, 117px); top: calc(34% + 110px); left: calc(6% + 60px); --rot: -17deg; }
+        .hero-prop.hp-mtg { width: clamp(33px, 3.6vw, 60px); bottom: calc(12% + 420px); left: calc(5% + 270px); --rot: -10deg; }
+        .hero-prop.hp-stroop { width: clamp(72px, 7.8vw, 124px); bottom: calc(10% + 260px); left: calc(19% - 20px); --rot: 12deg; }
+        .hero-prop.hp-pavpola { width: clamp(144px, 16.8vw, 252px); bottom: calc(10% + 20px); right: calc(4% + 70px); --rot: 5deg; display: block; cursor: pointer; }
+        .hero-prop.hp-piano { width: clamp(100px, 12vw, 190px); top: calc(3% + 440px); right: calc(25% - 210px); --rot: -5deg; }
+        .hero-prop.hp-chinese { width: clamp(202px, 22.5vw, 360px); top: calc(20% + 10px); right: calc(12% + 20px); --rot: 5deg; }
         .polaroid { background: #fff; padding: 7px 7px 24px; box-shadow: 3px 6px 14px rgba(0,0,0,.5); }
         .polaroid img { display: block; width: 100%; height: auto; }
         @media (max-width: 768px) { .hero-prop { display: none; } }
@@ -3563,6 +3565,8 @@
                     <img className="hero-prop hp-mtg" src="Objects/mtg.png" alt="" />
                     <img className="hero-prop hp-stroop" src="Objects/stroopwafel.png" alt="" />
                     <a className="hero-prop hp-pavpola" href="https://vimeo.com/314071085?fl=pl&fe=sh" target="_blank" rel="noopener noreferrer"><img src="Photos of Pav/Polaroid Pav.png" alt="Pav" style={{display:'block', width:'100%'}} /></a>
+                    <img className="hero-prop hp-piano" src="Photos of Pav/Piano.png" alt="" />
+                    <img className="hero-prop hp-chinese" src="Photos of Pav/Chinese.png" alt="" />
                 </section>
             );
         }
@@ -4138,7 +4142,7 @@
 
         /* Hero props: drag-and-stay + (hover handled in CSS) */
         function initHeroPropDrag() {
-            document.querySelectorAll('.hero-prop').forEach(function(el){
+            document.querySelectorAll('.hero-prop:not(.hp-pavpola)').forEach(function(el){
                 el.setAttribute('draggable','false');
                 var sx, sy, ox, oy;
                 function cur(){ return [parseFloat(el.style.getPropertyValue('--tx'))||0, parseFloat(el.style.getPropertyValue('--ty'))||0]; }
